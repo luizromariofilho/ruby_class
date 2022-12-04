@@ -64,3 +64,11 @@ print "#{arr.flatten.compact.uniq.max} \n" # min
 puts
 
 puts [].empty?
+
+
+a = [:a, :b, :b, :b, :c, :c, :c, :a, :d, :d]
+# ruby 2.4+
+counts = a.group_by(&:itself).transform_values(&:count)
+# Ruby 2.7+
+counts = a.tally
+counts
